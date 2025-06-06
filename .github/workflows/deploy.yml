@@ -24,11 +24,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
 
-    services:
-      redis:
-        image: redis:latest
-        ports:
-          - 6379:6379
+    # services:
+    #   redis:
+    #     image: redis:latest
+    #     ports:
+    #       - 6379:6379
     
     steps:
       - name: Checkout code
@@ -42,14 +42,17 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install redis cli
-        run: sudo apt-get update -y && sudo apt-get install redis-tools -y
+      # - name: Install redis cli
+      #   run: sudo apt-get update -y && sudo apt-get install redis-tools -y
 
-      - name: Test redis
-        run: redis-cli -h localhost -p 6379 ping
+      # - name: Test redis
+      #   run: redis-cli -h localhost -p 6379 ping
 
-      - name: Show secret
-        run: echo "Secret is ${{ secrets.TOKEN_SECRET }}"
+      # - name: Show secret
+      #   run: echo "Secret is ${{ secrets.TOKEN_SECRET }}"
+
+      - name: Build project
+        run: npm run build
 
   deploy:
     runs-on: ubuntu-latest
