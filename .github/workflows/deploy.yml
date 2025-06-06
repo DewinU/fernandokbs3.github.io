@@ -63,3 +63,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+
+      - name: Deploy to production
+        run: |
+          echo "Deploying to production..."
+          # Add your deployment commands here
+          # For example, you might use rsync, scp, or a cloud provider's CLI tool
+          # Example: rsync -avz ./dist/
