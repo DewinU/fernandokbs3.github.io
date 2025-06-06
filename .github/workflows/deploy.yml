@@ -32,4 +32,4 @@ jobs:
         run: redis-cli -h localhost -p 6379 ping
 
       - name: Show secret
-        run: echo "Secret is ${{ secrets.SECRET_TOKEN }}"
+        run: echo "Secret is ${{ secrets.TOKEN_SECRET }}"
